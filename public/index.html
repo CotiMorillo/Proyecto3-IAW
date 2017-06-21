@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" ng-app="meanMapApp">
+<head>
+    <meta charset="utf-8">
+    <title>Locales en tu mano</title>
+    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrn605l7RPadiwdzsOlRw9O28lxfYBJ6s"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+    <script src="/js/ng-map.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src ="/js/map.js"></script>
+    <script src ="/js/servicio.js"></script>
+    <script src = "/js/controlador.js"></script>
+</head>
+
+<body>
+<div class="container">
+ <div class="header">
+        <ul class="nav nav-pills pull-right">
+             <li ><a href="/#/home"> Home </a></li>
+             <li ><a href="/#/login"> Login </a></li>
+             <li ><a href="/#/agregar">Agregar</a></li>
+             <li ><a href="/#/eliminar">Eliminar</a></li>
+        </ul>
+        <h3 class="text-muted">Locales de Indumentaria</h3>
+</div>
+    <div class="row content">
+        <div ng-view></div>
+    </div>
+    <hr/>
+</div>
+
+</body>
+</html>

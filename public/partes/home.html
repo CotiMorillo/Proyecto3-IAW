@@ -1,0 +1,41 @@
+<div class="col-md-6">
+            <div id = "map">
+                    <ng-map zoom="13" center="[-38.7176219,-62.2676738]">
+                            <marker id ="{{local._id}}" ng-repeat="local in locales | filter:filtro"
+                             position = "{{local.ubicacion}}"
+                             on-click="mostrar(local)">
+                            </marker>  
+                             <info-window id="ventana">
+                                <div ng-non-bindable="">
+                                        Nombre: {{local.nombre}}<br/>
+                                        Genero: {{local.genero}}<br/>
+                                        Edades: {{local.edades}}<br/>
+                                </div>
+                        </info-window>
+                    </ng-map>
+                </div>
+            </div> 
+  </div> 
+
+<div class="col-md-6">
+        <label>Buscar: <input ng-model="filtro"></label>
+        </br></br>
+       <table class="table">
+        <thead>
+                <tr>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Edades</th>
+                <th>Tipo</th>
+                </tr>
+        </thead>
+            <tbody>
+                <tr ng-repeat="local in locales | filter:filtro | orderBy: 'nombre'">
+                        <td>{{local.nombre}}</td>
+                        <td>{{local.genero}}</td>
+                        <td>{{local.edades}}</td>
+                        <td>{{local.tipo}}</td>
+                </tr>
+            </tbody>
+        </table>      
+</div>

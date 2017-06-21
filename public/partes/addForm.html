@@ -1,0 +1,90 @@
+ <div class="col-md-6">
+            <div id = "map">
+                    <ng-map zoom="13" center="[-38.7176219,-62.2676738]">
+                            <marker position="{{lat}},{{lng}}" >
+                            </marker>
+                    </ng-map>
+            </div> 
+  </div> 
+
+<div class="col-md-6">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title text-center">Agregar local nuevo<span class="glyphicon glyphicon-map-marker"></span></h2>
+        </div>
+
+        <div class="panel-body">
+
+            <form name ="addForm" novalidate>
+
+                <div>
+                    <label for="nombre">Nombre del Local</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="..." ng-model="formData.nombre" required>
+                </div>
+                <label class="radio control-label">Género</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="hombre" value="Hombre" ng-model="formData.genero" required>
+                        Hombre
+                    </label>
+                </div>
+                <div class="radio" >
+                    <label>
+                        <input type="radio" name="optionsRadios" id="mujer" value="Mujer" ng-model="formData.genero" >
+                        Mujer
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="unisex" value="Unisex" ng-model="formData.genero">
+                        Unisex
+                    </label>
+                </div>
+                 <label class="radio control-label">Edades</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios2" id="adultos" value="Adultos" ng-model="formData.edades" required>
+                        Adultos
+                    </label>
+                </div>
+                <div class="radio" >
+                    <label>
+                        <input type="radio" name="optionsRadios2" id="adolescentes" value="Adolescentes" ng-model="formData.edades" >
+                        Adolescentes
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios2" id="menores" value="Menores" ng-model="formData.edades">
+                        Menores
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios2" id="todas" value="Todas las edades" ng-model="formData.edades">
+                        Todas las edades
+                    </label>
+                </div>
+                 <div>
+                    <label>Tipo de Ropa</label>
+                    <input type="text" class="form-control" placeholder="..." ng-model="formData.tipo" required>
+                </div>
+                <div class="form-group">
+                    <label>Dirección</label>
+                        <input class="form-control"
+                                type="text"
+                                ng-model="formData.direccion"
+                                placeholder="..."
+                                required>
+                                </br>
+
+                    <button type="submit"  class="btn btn-danger btn-block" ng-click="buscarDireccion()"> Buscar</button>
+                </div>
+                <button type="submit" class="btn btn-danger btn-block" ng-click="createLocal()" ng-disabled="addForm.$invalid">Agregar</button>
+            </form>
+            </br></br>
+            <label>{{cartel}}</label>
+        </div>
+    </div>
+</div>
