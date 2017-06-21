@@ -60,5 +60,9 @@ addCtrl.controller('controlador', function($scope, $http, Local, NgMap, $locatio
         })
     }
 
+    $scope.doLogin = function() {
+        $scope.logueado = true; 
+    };
+
 });
 

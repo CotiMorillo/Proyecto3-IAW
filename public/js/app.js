@@ -12,8 +12,8 @@ var app = angular.module('meanMapApp', ['ngRoute','servicio','miApp'])
 
         }).when('/login',{
             templateUrl: 'partes/login.html',
-            controller: 'controlar'
-            
+            controller: 'controlador'
+
         }).when('/eliminar',{
             templateUrl: 'partes/eliminar.html',
             controller: 'controlador'
