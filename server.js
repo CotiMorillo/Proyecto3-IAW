@@ -7,7 +7,7 @@ var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
 var app             = express();
-var Local           = require('./app/local')
+var Local           = require('./app/local');
 
 app.use(express.static(__dirname + '/public'));                 
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
@@ -28,22 +28,6 @@ mongoose.connect('mongodb://localhost:27017/proyecto3', function(err) {
 });
 
 require('./app/routes.js')(app);
-
-app.get('/locales', function(req, res) {
-    Local.find({}, function(err, locales) {
-        res.json(locales);
-    })
-});
-
-app.get('/locales/:id', function(req, res){
-    var id =  req.params.id;
-        Local.find({nombre: id}, function(err, local){
-            if (err)
-                res.json(err);
-            else
-                res.json(local);
-    })
-});
 
 app.listen(port);
 console.log('App listening on port ' + port);

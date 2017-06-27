@@ -7,6 +7,7 @@ var LocalSchema = new Schema({
     genero :{type: String, required: true},
     edades: {type: String, required:true},
     tipo: {type: String, required : true},
+    direccion: {type: String, required : true},
     created_at: {type: Date, default: Date.now},
     updated_at: {type: Date, default: Date.now}
 });

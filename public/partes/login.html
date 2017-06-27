@@ -1,20 +1,49 @@
-<div class="col-lg-12">
-<form  id="contactForm" novalidate>
-<div class="row">
- <div class="col-md-6">
-        <div class="form-group">
-            <label>Usuario:</label>
-            <input class="form-control" type="text" name="username" placeholder="username *" ng-model="loginData.username">
-        </div>
-        <div class="form-group">
-            <label>Contraseña:</label>
-            <input class="form-control" type="password" name="password" placeholder="password *" ng-model="loginData.password">
-        </div>
+<div class="row text-center">
+    <div class="container">
+        <h2 class="section-heading">Login</h2>
+        <h3 class="section-subheading text-muted">Por favor ingresa tu informacion</h3>
+    </div>
 </div>
-<div class="clearfix"></div>
-    <div class="col-lg-12 text-left">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form name="sentMessage" id="contactForm" ng-submit="main.doLogin(loginData);" novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Usuario:</label>
+                                <input ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="form-control" type="text" name="username" placeholder="username *" ng-model="main.loginData.username" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña:</label>
+                                <input ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="form-control" type="password" name="password" placeholder="password *" ng-model="main.loginData.password">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-left">
+                            <br>
+                            <div id="success"></div>
+                            <button type="submit" ng-disabled="main.disabled || facebook.disabled || twitter.disabled || google.disabled" class="btn btn-xl">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <br>
-    <button type="submit" class="btn btn-xl"  ng-click="doLogin()" >Login</button>
- </div>
-</div>
-</form>
+
+        <div class="jumbotron text-center" ng-show="main.loading">
+            <span class="glyphicon glyphicon-repeat spinner"></span>
+            <p>Loading....</p>
+        </div>
+
+        <div class="row show-hide-message" ng-show="main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg">
+            <div ng-class="alert">{{ main.successMsg || main.errorMsg || facebook.errorMsg || twitter.errorMsg || google.errorMsg }}</div>&nbsp
+            <a ng-show="main.expired || facebook.expired || google.expired || twitter.expired" href="/resend">
+                <button type="button" class="btn btn-success">Resend Activation Link</button>
+            </a>
+        </div>
+
+    </div>
+

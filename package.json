@@ -5,11 +5,17 @@
     "main": "server.js",
     "author": "Ahmed Haque",
     "dependencies" : {
+    "bcrypt-nodejs": "0.0.3",
     "express": "^4.14.0",
     "mongoose": "^4.6.0",
+     "express-session": "^1.14.2",
+    "mongoose-title-case": "0.0.4",
+    "mongoose-validator": "^1.2.5",
     "morgan": "^1.7.0",
     "body-parser": "^1.15.2",
     "jsonwebtoken": "^7.1.9",
-        "method-override": "~2.1.2"
+    "method-override": "~2.1.2",
+    "nodemailer": "^2.7.0"
+
     }
 }

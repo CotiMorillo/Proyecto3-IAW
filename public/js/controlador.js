@@ -1,5 +1,6 @@
 var addCtrl = angular.module('miApp', ['ngMap','servicio']);
-addCtrl.controller('controlador', function($scope, $http, Local, NgMap, $location){
+
+addCtrl.controller('controlador', function($scope, $http, Local, NgMap,$window, $location){
 
     NgMap.getMap().then(function(map) {
         $scope.mapa = map;
@@ -26,7 +27,9 @@ addCtrl.controller('controlador', function($scope, $http, Local, NgMap, $locatio
     $scope.buscarDireccion = function(){
         geocoder = new google.maps.Geocoder();
 
-        geocoder.geocode({ address : $scope.formData.direccion }, function (result, status) {
+        var address1 = $scope.formData.direccion + ", bahia blanca";
+
+        geocoder.geocode({ address : address1 }, function (result, status) {
                   if (status === google.maps.GeocoderStatus.OK) {
                      $scope.lat =  result[0].geometry.location.lat();
                      $scope.lng =  result[0].geometry.location.lng();
@@ -42,21 +45,24 @@ addCtrl.controller('controlador', function($scope, $http, Local, NgMap, $locatio
             edades: $scope.formData.edades,
             tipo: $scope.formData.tipo,
             ubicacion: [$scope.lat, $scope.lng],
+            direccion: $scope.formData.direccion,
         };
 
         Local.create(localData).then(function(data) {
             if (data.status == 200)
-                $scope.cartel = "El usuario se agrego correctamente";
+                $scope.cartel = "El local se agrego correctamente";
             else
-                $scope.cartel = "El usuario no pudo ser agregado";
+                $scope.cartel = "El local no pudo ser agregado";
         });
      }
 
     $scope.eliminar = function (local){
 
         Local.delete(local).then(function(data){
-            if (data.status == 200)
+            if (data.status == 200){
                 getLocales();
+                $scope.cartel2 = "El local se elimino correctamente";
+            }
         })
     }
 
@@ -65,4 +71,6 @@ addCtrl.controller('controlador', function($scope, $http, Local, NgMap, $locatio
     };
 
 });
+
+
 

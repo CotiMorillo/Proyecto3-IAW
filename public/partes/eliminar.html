@@ -1,15 +1,18 @@
+</br>
 <div class="col-md-6">
             <div id = "map">
-                    <ng-map zoom="13" center="[-38.7176219,-62.2676738]">
-                            <marker id ="{{local.ubicacion}}" ng-repeat="local in locales"
+                    <ng-map zoom="14" center="[-38.7176219,-62.2676738]">
+                            <marker id ="{{local._id}}" ng-repeat="local in locales"
                              position = "{{local.ubicacion}}"
                              on-click="mostrar(local)">
                             </marker>  
                              <info-window id="ventana">
                                 <div ng-non-bindable="">
-                                        Nombre: {{local.nombre}}<br/>
+                                        <h3>{{local.nombre}}</h3>
                                         Genero: {{local.genero}}<br/>
                                         Edades: {{local.edades}}<br/>
+                                        Tipo: {{local.tipo}} </br>
+                                        Direccion: {{local.direccion}} </br>
                                 </div>
                         </info-window>
                     </ng-map>
@@ -38,5 +41,6 @@
                         </td>
                 </tr>
             </tbody>
-        </table>      
+        </table>  
+         <label>{{cartel2}}</label>
 </div>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="meanMapApp">
+<html class="no-js">
 <head>
     <meta charset="utf-8">
     <title>Locales en tu mano</title>
@@ -15,19 +15,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
     <script src="/js/ng-map.min.js"></script>
     <script src="/js/app.js"></script>
-    <script src ="/js/map.js"></script>
+    <script src="/js/routes.js"></script>
     <script src ="/js/servicio.js"></script>
     <script src = "/js/controlador.js"></script>
+    <script src = "/js/userController.js"></script>
+    <script src = "/js/userServices.js"></script>
+    <script src = "/js/authServices.js"></script>
+    <script src = "/js/mainCtrl.js"></script>
+    <script src = "/js/facebook.js"></script>
+
 </head>
 
-<body>
+<body ng-app="meanMapApp" ng-controller="mainCtrl as main" ng-cloak>
 <div class="container">
- <div class="header">
+ <div class="header" >
         <ul class="nav nav-pills pull-right">
              <li ><a href="/#/home"> Home </a></li>
-             <li ><a ng-show ="{{logueado}}" href="/#/login"> Login </a></li>
-             <li ><a href="/#/agregar">Agregar</a></li>
-             <li ><a href="/#/eliminar">Eliminar</a></li>
+            <li class=""><a ng-show="!main.isLoggedIn" class="page-scroll" href="/#/login">Login</a>
+            </li><li class=""><a ng-show="main.isLoggedIn && main.authorized" class="page-scroll" href="/#/agregar">Agregar</a></li>
+             <li ><a ng-show="main.isLoggedIn && main.authorized" class="page-scroll" href="/#/eliminar">Eliminar</a></li>
+             <li class=""><a ng-show="main.isLoggedIn" class="page-scroll" href="#" ng-click="main.logout();">Logout</a></li>
         </ul>
         <h3 class="text-muted">Locales de Indumentaria</h3>
 </div>
@@ -35,6 +42,8 @@
         <div ng-view></div>
     </div>
     <hr/>
+    <div id="fb-root" align="center" ></div>
+    <div class="fb-comments" align="center" id = "id" data-href="http://localhost:3000/comentarios" data-numposts="5"></div>
 </div>
 
 </body>

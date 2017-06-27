@@ -15,6 +15,7 @@ body {
 .footer {
     padding-left: 15px;
     padding-right: 15px;
+    color: black;
 }
 
 .header {
@@ -49,20 +50,3 @@ ng-map {
     height:500px;
 }
 
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 1120px;
-    }
-
-    .header,
-    .content,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .header {
-        margin-bottom: 30px;
-    }
-
-}
