@@ -1,14 +1,14 @@
 {
-    "name": "MiApp",
+    "name": "MeanMapsApp",
     "version": "1.0.0",
-    "description": "Proyecto 3 de IAW",
+    "description": "Proyecto 3 de iaw - basado en Mean Stack",
     "main": "server.js",
-    "author": "Constanza Morillo",
+    "author": "Ahmed Haque",
     "dependencies" : {
     "bcrypt-nodejs": "0.0.3",
     "express": "^4.14.0",
     "mongoose": "^4.6.0",
-     "express-session": "^1.14.2",
+    "express-session": "^1.14.2",
     "mongoose-title-case": "0.0.4",
     "mongoose-validator": "^1.2.5",
     "morgan": "^1.7.0",

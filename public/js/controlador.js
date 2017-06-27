@@ -63,12 +63,10 @@ addCtrl.controller('controlador', function($scope, $http, Local, NgMap,$window, 
                 getLocales();
                 $scope.cartel2 = "El local se elimino correctamente";
             }
+            else
+                $scope.cartel2 = "El local no pudo ser eliminado";
         })
     }
-
-    $scope.doLogin = function() {
-        $scope.logueado = true; 
-    };
 
 });
 

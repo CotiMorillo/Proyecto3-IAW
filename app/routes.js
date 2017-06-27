@@ -75,17 +75,15 @@ module.exports = function(app) {
         });
     });
 
-    //agregado
-
     app.post('/checkusername', function(req, res) {
         User.findOne({ username: req.body.username }).select('username').exec(function(err, user) {
             if (err) {
                 res.json({ success: false, message: 'Algo salio mal.' });
             } else {
                 if (user) {
-                    res.json({ success: false, message: 'Nombre de usuario ya usado,'}); // If user is returned, then username is taken
+                    res.json({ success: false, message: 'Nombre de usuario ya usado,'}); 
                 } else {
-                    res.json({ success: true, message: 'Nombre de usuario valido.' }); // If user is not returned, then username is not taken
+                    res.json({ success: true, message: 'Nombre de usuario valido.' }); 
                 }
             }
         });
@@ -97,9 +95,9 @@ module.exports = function(app) {
                 res.json({ success: false, message: 'Algo salido mal.' });
             } else {
                 if (user) {
-                    res.json({ success: false, message: 'E-mail ya usado.' }); // If user is returned, then e-mail is taken
+                    res.json({ success: false, message: 'E-mail ya usado.' }); 
                 } else {
-                    res.json({ success: true, message: 'E-mail valido.' }); // If user is not returned, then e-mail is not taken
+                    res.json({ success: true, message: 'E-mail valido.' }); 
                 }
             }
         });
