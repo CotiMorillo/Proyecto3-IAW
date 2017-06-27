@@ -6,6 +6,9 @@ var app = angular.module('appRoutes', ['ngRoute'])
             templateUrl: 'partes/home.html',
             controller: 'controlador',
 
+        }).when('/autores',{
+            templateUrl: 'partes/autores.html'
+
         }).when('/register', {
             templateUrl: 'partes/register.html',
             controller: 'regCtrl',
