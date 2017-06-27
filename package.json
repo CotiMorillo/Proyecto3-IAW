@@ -1,9 +1,9 @@
 {
-    "name": "MeanMapsApp",
+    "name": "MiApp",
     "version": "1.0.0",
-    "description": "Demo app showing the use of Google Maps in MEAN Apps",
+    "description": "Proyecto 3 de IAW",
     "main": "server.js",
-    "author": "Ahmed Haque",
+    "author": "Constanza Morillo",
     "dependencies" : {
     "bcrypt-nodejs": "0.0.3",
     "express": "^4.14.0",
